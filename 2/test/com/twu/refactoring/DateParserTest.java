@@ -14,7 +14,7 @@ public class DateParserTest {
     @Test
     public void shouldThrowExceptionIfYearStringCannotBeParsed() {
         try {
-            new DateParser("111").parse();
+            new DateParser("111").parseDateTimeString();
             fail("Should have failed since the year string is less than 4 characters");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is("Year string is less than 4 characters"));
@@ -24,7 +24,7 @@ public class DateParserTest {
     @Test
     public void shouldThrowExceptionIfYearIsNotInteger() {
         try {
-            new DateParser("abcd").parse();
+            new DateParser("abcd").parseDateTimeString();
             fail("Should have failed since the year string is not an integer");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is("Year is not an integer"));
@@ -34,7 +34,7 @@ public class DateParserTest {
     @Test
     public void shouldThrowExceptionIfYearIsLessThan2000() {
         try {
-            new DateParser("1999").parse();
+            new DateParser("1999").parseDateTimeString();
             fail("Should have failed since the year is less than 2000");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is("Year cannot be less than 2000 or more than 2012"));
@@ -44,7 +44,7 @@ public class DateParserTest {
     @Test
     public void shouldThrowExceptionIfMonthStringCannotBeParsed() {
         try {
-            new DateParser("2012-1").parse();
+            new DateParser("2012-1").parseDateTimeString();
             fail("Should have failed since the month string is less than 2 characters");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is("Month string is less than 2 characters"));
@@ -54,7 +54,7 @@ public class DateParserTest {
     @Test
     public void shouldThrowExceptionIfMonthIsNotInteger() {
         try {
-            new DateParser("2012-ab").parse();
+            new DateParser("2012-ab").parseDateTimeString();
             fail("Should have failed since the month string is not an integer");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is("Month is not an integer"));
@@ -64,17 +64,17 @@ public class DateParserTest {
     @Test
     public void shouldThrowExceptionIfMonthIsMoreThan12() {
         try {
-            new DateParser("2012-13").parse();
+            new DateParser("2012-13").parseDateTimeString();
             fail("Should have failed since the month is more than 12");
-        } catch (IllegalArgumentException e) {
-            assertThat(e.getMessage(), is("Month cannot be less than 1 or more than 12"));
+        }catch (IllegalArgumentException e) {
+           assertThat(e.getMessage(), is("Month cannot be less than 1 or more than 12"));
         }
     }
 
     @Test
     public void shouldThrowExceptionIfDateStringCannotBeParsed() {
         try {
-            new DateParser("2012-12-1").parse();
+            new DateParser("2012-12-1").parseDateTimeString();
             fail("Should have failed since the date string is less than 2 characters");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is("Date string is less than 2 characters"));
@@ -84,7 +84,7 @@ public class DateParserTest {
     @Test
     public void shouldThrowExceptionIfDateIsNotInteger() {
         try {
-            new DateParser("2012-12-ab").parse();
+            new DateParser("2012-12-ab").parseDateTimeString();
             fail("Should have failed since the date string is not an integer");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is("Date is not an integer"));
@@ -94,7 +94,7 @@ public class DateParserTest {
     @Test
     public void shouldThrowExceptionIfDateIsMoreThan31() {
         try {
-            new DateParser("2012-12-32").parse();
+            new DateParser("2012-12-32").parseDateTimeString();
             fail("Should have failed since the date is more than 31");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is("Date cannot be less than 1 or more than 31"));
@@ -104,7 +104,7 @@ public class DateParserTest {
     @Test
     public void shouldThrowExceptionIfHourStringCannotBeParsed() {
         try {
-            new DateParser("2012-12-11T0").parse();
+            new DateParser("2012-12-11T0").parseDateTimeString();
             fail("Should have failed since the hour string is less than 2 characters");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is("Hour string is less than 2 characters"));
@@ -114,7 +114,7 @@ public class DateParserTest {
     @Test
     public void shouldThrowExceptionIfHourIsNotInteger() {
         try {
-            new DateParser("2012-12-30Tab").parse();
+            new DateParser("2012-12-30Tab").parseDateTimeString();
             fail("Should have failed since the hour string is not an integer");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is("Hour is not an integer"));
@@ -124,7 +124,7 @@ public class DateParserTest {
     @Test
     public void shouldThrowExceptionIfHourIsMoreThan23() {
         try {
-            new DateParser("2012-12-31T24").parse();
+            new DateParser("2012-12-31T24").parseDateTimeString();
             fail("Should have failed since the hour is more than 23");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is("Hour cannot be less than 0 or more than 23"));
@@ -134,7 +134,7 @@ public class DateParserTest {
     @Test
     public void shouldThrowExceptionIfMinuteStringCannotBeParsed() {
         try {
-            new DateParser("2012-12-11T01:1").parse();
+            new DateParser("2012-12-11T01:1").parseDateTimeString();
             fail("Should have failed since the minute string is less than 2 characters");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is("Minute string is less than 2 characters"));
@@ -144,7 +144,7 @@ public class DateParserTest {
     @Test
     public void shouldThrowExceptionIfMinuteIsNotInteger() {
         try {
-            new DateParser("2012-12-30T01:ab").parse();
+            new DateParser("2012-12-30T01:ab").parseDateTimeString();
             fail("Should have failed since the minute string is not an integer");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is("Minute is not an integer"));
@@ -154,7 +154,7 @@ public class DateParserTest {
     @Test
     public void shouldThrowExceptionIfMinuteIsMoreThan59() {
         try {
-            new DateParser("2012-12-31T23:60").parse();
+            new DateParser("2012-12-31T23:60").parseDateTimeString();
             fail("Should have failed since the minute is more than 59");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is("Minute cannot be less than 0 or more than 59"));
@@ -169,7 +169,7 @@ public class DateParserTest {
         calendar.set(Calendar.MILLISECOND, 0);
         Date expectedDate = calendar.getTime();
 
-        Date result = new DateParser("2012-12-31T23:59Z").parse();
+        Date result = new DateParser("2012-12-31T23:59Z").parseDateTimeString();
 
         assertThat(result, is(expectedDate));
     }

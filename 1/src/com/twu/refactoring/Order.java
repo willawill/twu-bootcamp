@@ -3,9 +3,9 @@ package com.twu.refactoring;
 import java.util.List;
 
 public class Order {
-    String customerName;
-    String customerAddress;
-    List<LineItem> itemList;
+    private String customerName;
+    private String customerAddress;
+    private List<LineItem> itemList;
 
 
     public Order(String customerName, String customerAddress, List<LineItem> itemList) {
@@ -13,6 +13,11 @@ public class Order {
         this.customerAddress = customerAddress;
         this.itemList = itemList;
     }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
 
     @Override
     public String toString() {
