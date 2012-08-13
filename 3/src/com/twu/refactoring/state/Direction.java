@@ -3,6 +3,9 @@ package com.twu.refactoring.state;
 public class Direction {
     private final DirectionUnit direction;
 /*
+
+Introduce polymorphism by implementing different behaviors.
+
     private DirectionState directionStates;
     public Direction(char direction){
         this.direction = direction;
@@ -22,10 +25,13 @@ public class Direction {
         }
     }
     public Direction turnLeft(){
-    switch(directionState.direction):
-    case 'N' :
-        return new Direction('E');
+        return directionState.turnLeft();
+    }
 
+    public Direction turnRight(){
+        return directionState.turnRight();
+    }
+     @Override equals and harshcode
     }
 */
     public Direction(DirectionUnit direction) {

@@ -63,10 +63,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Direction.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Direction.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/3/src/com/twu/refactoring/state/Direction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="6" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0">
+            <state line="7" column="0" selection-start="168" selection-end="168" vertical-scroll-proportion="0.13565892">
               <folding />
             </state>
           </provider>
@@ -81,10 +81,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="West.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="West.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/3/src/com/twu/refactoring/state/West.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="15" selection-start="161" selection-end="161" vertical-scroll-proportion="0.13565892">
+            <state line="7" column="15" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -128,8 +128,8 @@
         <option value="$PROJECT_DIR$/3/src/com/twu/refactoring/state/DirectionUnit.java" />
         <option value="$PROJECT_DIR$/3/test/com/twu/refactoring/state/DirectionTest.java" />
         <option value="$PROJECT_DIR$/3/src/com/twu/refactoring/state/DirectionStates.java" />
-        <option value="$PROJECT_DIR$/3/src/com/twu/refactoring/state/Direction.java" />
         <option value="$PROJECT_DIR$/3/src/com/twu/refactoring/state/West.java" />
+        <option value="$PROJECT_DIR$/3/src/com/twu/refactoring/state/Direction.java" />
       </list>
     </option>
   </component>
@@ -764,9 +764,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/3/src/com/twu/refactoring/state/Direction.java">
+    <entry file="file://$PROJECT_DIR$/3/src/com/twu/refactoring/state/West.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="6" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0">
+        <state line="7" column="15" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -778,9 +778,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/3/src/com/twu/refactoring/state/West.java">
+    <entry file="file://$PROJECT_DIR$/3/src/com/twu/refactoring/state/Direction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="15" selection-start="161" selection-end="161" vertical-scroll-proportion="0.13565892">
+        <state line="7" column="0" selection-start="168" selection-end="168" vertical-scroll-proportion="0.13565892">
           <folding />
         </state>
       </provider>
