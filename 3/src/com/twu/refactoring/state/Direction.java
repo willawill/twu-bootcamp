@@ -1,40 +1,50 @@
 package com.twu.refactoring.state;
 
 public class Direction {
-    private final char direction;
+    private final DirectionUnit direction;
+/*
+    private DirectionState directionStates;
+    public Direction(char direction){
+        this.direction = direction;
+    }
+    private void setDirectionState(char direction){
+        switch(direction){
 
-    public Direction(char direction) {
+        case 'W':
+            this.directionState = new North();
+            break;
+         case 'S':
+            this.directionState = new South();
+            break;
+            //TODO complete other directions.
+         default :
+            throw new IllegalArgument();
+        }
+    }
+    public Direction turnLeft(){
+    switch(directionState.direction):
+    case 'N' :
+        return new Direction('E');
+
+    }
+*/
+    public Direction(DirectionUnit direction) {
         this.direction = direction;
     }
 
     public Direction turnRight() {
-        switch (direction) {
-            case 'N':
-                return new Direction('E');
-            case 'S':
-                return new Direction('W');
-            case 'E':
-                return new Direction('N');
-            case 'W':
-                return new Direction('S');
-            default:
-                throw new IllegalArgumentException();
-        }
+        int currentOne = direction.getValue();
+        return new Direction(getNextDirection((currentOne + 1) % 4));
     }
 
     public Direction turnLeft() {
-        switch (direction) {
-            case 'N':
-                return new Direction('W');
-            case 'S':
-                return new Direction('E');
-            case 'E':
-                return new Direction('N');
-            case 'W':
-                return new Direction('S');
-            default:
-                throw new IllegalArgumentException();
-        }
+        int currentOne = direction.getValue();
+        return new Direction(getNextDirection((currentOne + 3) % 4));
+    }
+
+    private DirectionUnit getNextDirection(int num) {
+        return DirectionUnit.values()[num];
+
     }
 
     @Override
@@ -51,11 +61,6 @@ public class Direction {
 
     @Override
     public int hashCode() {
-        return (int) direction;
-    }
-
-    @Override
-    public String toString() {
-        return "Direction{direction=" + direction + '}';
+        return direction != null ? direction.hashCode() : 0;
     }
 }

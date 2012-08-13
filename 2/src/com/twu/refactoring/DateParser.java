@@ -20,40 +20,31 @@ public class DateParser {
 
     public Date parseDateTimeString() {
         int year, month, date, hour, minute;
-        HashMap<String, Integer> dateMap = new HashMap<String, Integer>();
-
-        year = this.parse(0, 4, "Year", 2000, 2012);
-        month = this.parse(5, 7, "Month", 1, 12);
-        date = this.parse(8, 10, "Date", 1, 31);
+        year = this.parseCalendarEntity(0, 4, "Year", 2000, 2012);
+        month = this.parseCalendarEntity(5, 7, "Month", 1, 12);
+        date = this.parseCalendarEntity(8, 10, "Date", 1, 31);
         if (dateAndTimeString.substring(11, 12).equals("Z")) {
             hour = 0;
             minute = 0;
         } else {
-            hour = this.parse(11, 13, "Hour", 0, 23);
+            hour = this.parseCalendarEntity(11, 13, "Hour", 0, 23);
 
-            minute = this.parse(14, 16, "Minute", 0, 59);
+            minute = this.parseCalendarEntity(14, 16, "Minute", 0, 59);
 
         }
-
-        dateMap.put("Year", year);
-        dateMap.put("Month", month);
-        dateMap.put("Date", date);
-        dateMap.put("Hour", hour);
-        dateMap.put("Minute", minute);
-
-        return this.parse(dateMap);
+     return this.parse(year, month, date, hour, minute);
     }
 
-    private Date parse(HashMap<String, Integer> dateMap) {
+    private Date parse(int year,int month,int date,int hour,int minute) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
-        calendar.set(dateMap.get("Year"), dateMap.get("Month") - 1, dateMap.get("Date"), dateMap.get("Hour"), dateMap.get("Minute"), 0);
+        calendar.set(year,month-1,date, hour,minute,0);
         calendar.set(Calendar.MILLISECOND, 0);
         return calendar.getTime();
     }
 
 
-    private int parse(int startIndex, int endIndex, String unitName, int lowerBound, int upperBound) {
+    private int parseCalendarEntity(int startIndex, int endIndex, String unitName, int lowerBound, int upperBound) {
         int result = 0;
         try {
             String resultString = dateAndTimeString.substring(startIndex, endIndex);
