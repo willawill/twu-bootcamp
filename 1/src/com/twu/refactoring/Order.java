@@ -3,25 +3,61 @@ package com.twu.refactoring;
 import java.util.List;
 
 public class Order {
-    String nm;
-    String addr;
-    List<LineItem> li;
+    String customerName;
+    String customerAddress;
+    List<LineItem> itemList;
 
-    public Order(String nm, String addr, List<LineItem> li) {
-        this.nm = nm;
-        this.addr = addr;
-        this.li = li;
+
+    public Order(String customerName, String customerAddress, List<LineItem> itemList) {
+        this.customerName = customerName;
+        this.customerAddress = customerAddress;
+        this.itemList = itemList;
     }
 
-    public String getCustomerName() {
-        return nm;
+    @Override
+    public String toString() {
+        StringBuilder output = new StringBuilder();
+        output.append(customerName);
+        output.append(customerAddress);
+
+        output.append(displayLineItems());
+        output.append("Sales Tax");
+        output.append('\t');
+
+        output.append(this.calculateTotalSalesTax());
+        output.append("Total Amount");
+        output.append('\t');
+
+        output.append(this.calculateTotalAmount());
+        return output.toString();
+
     }
 
-    public String getCustomerAddress() {
-        return addr;
+    private String displayLineItems() {
+        StringBuilder output = new StringBuilder();
+        for (LineItem lineItem : itemList) {
+            output.append(lineItem.toString());
+
+        }
+        return output.toString();
     }
 
-    public List<LineItem> getLineItems() {
-        return li;
+    private double calculateTotalAmount() {
+        double totalAmount = 0;
+
+        for (LineItem oneItem : itemList) {
+            totalAmount += oneItem.calculateAmountWithSalesTax();
+        }
+        return totalAmount;
     }
+
+    private double calculateTotalSalesTax() {
+        double totalSalesTax = 0;
+
+        for (LineItem oneItem : itemList) {
+            totalSalesTax += oneItem.calculateSalesTax();
+        }
+        return totalSalesTax;
+    }
+
 }

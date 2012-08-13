@@ -9,13 +9,21 @@ import static org.junit.matchers.JUnitMatchers.containsString;
 
 public class OrderReceiptTest {
     @Test
-    public void shouldPrintCustomerInformationOnOrder() {
+    public void shouldPrintCustomerNameOnOrder() {
         Order order = new Order("Mr X", "Chicago, 60601", new ArrayList<LineItem>());
         OrderReceipt receipt = new OrderReceipt(order);
 
         String output = receipt.printReceipt();
 
         assertThat(output, containsString("Mr X"));
+    }
+
+    @Test
+    public void shouldPrintCustomerAddressOnOrder() {
+        Order order = new Order("Mr X", "Chicago, 60601", new ArrayList<LineItem>());
+        OrderReceipt receipt = new OrderReceipt(order);
+
+        String output = receipt.printReceipt();
         assertThat(output, containsString("Chicago, 60601"));
     }
 
